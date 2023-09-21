@@ -93,6 +93,20 @@ h6 {
     color: coral;
 }
 
-{
-    
+/*utility*/
+.btn{
+    padding: 20;
+    border-color: black;
+    border-radius: 20px;
+    color: #d8d8d8;
+}
+.btn .btn:hover{
+
+}
+.rotate_image {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(4-5deg);
 }
