@@ -53,7 +53,8 @@ h6 {
 }
 
 .navbar-light .navbar-nav .nav-link {
-    padding: 0 20px;
+    
+    padding: 0 30px !important;
     color: #000;
     transition: 0.4s ease;
 }
@@ -81,18 +82,85 @@ h6 {
 #home {
     background-color: #FDEFEF;
     width: 100%;
-    height: 500px;
+    height:500px;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center horizontally */
     align-items: flex-start; /* Center vertically */
-   
+    
 }
 
 #home span {
     color: coral;
 }
 
-{
+#brand {
+    padding: 50px 0px;
+    background-color: rgba(241, 241, 241, 1);
+}
+.card {
+    border: 0!important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
     
+}
+.card-text{
+    line-height: 1.8 !important;
+}
+
+.card-img-top{
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+.sale-icon{
+    padding: 8px 18px;
+    border: transparent;
+    border-radius: 20px;
+    color: white;
+    background-color: rgba(255, 141, 141, 1);
+}
+.heart-btns{
+    background: transparent;
+    color: grey;
+    border: none;
+}
+.image-set{
+    height: 162px !important;
+}
+/*utility*/
+.btn{
+    padding: 20;
+    border-color: black;
+    border-radius: 20px;
+    background-color: white;
+}
+.btn-view-more{
+    padding:10px 40px;
+    border-color: rgba(128, 128, 128, 0.521);
+    border-radius: 30px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.btn:hover{
+    background-color: #d8d8d8;
+    border-color: #000;
+    color: coral;
+}
+.rotate_image {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(4-5deg);
+}
+.font-card{
+    font-size: 15px;
+    color: grey;
+}
+.btn-cart{
+    border: none;
 }

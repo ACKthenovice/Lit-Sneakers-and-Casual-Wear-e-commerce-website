@@ -57,3 +57,14 @@ for (let i = 0; i < products.length; i++) {
 // Show the first carousel item (product)
 const firstCarouselItem = carouselInner.querySelector(".carousel-item");
 firstCarouselItem.classList.add("active");
+
+//heartbutton function
+var heartBtn=document.getElementById('heart-btn');
+function Toggle(){
+    if(heartBtn.style.color=="red"){
+        heartBtn.style.color= "grey"
+    }
+    else{
+        heartBtn.style.color="red"
+    }
+}
