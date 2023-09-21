@@ -160,8 +160,59 @@ h6 {
 .product:hover img{
     opacity: 0.7;
 }
+/*footer*/
+.footer{
+    background-color: black;
+    color: white;
+    padding: 50px;
+}
+.footer ul{
+    padding-left: 0;
+}
+.footer li{
+    padding: 0;
+    margin: 0 0 25px 0;
+    list-style: none;
+    display: block;
+    text-transform: uppercase;
+    font-size: 13px;
+    
+}
+.footer li a{
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
 
-
+/*single-product-page*/
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+}
+.small-img-col{
+    flex-basis: 25%;
+    cursor: pointer;
+}
+.singleproduct input{
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.singleproduct input:focus{
+    outline: none;
+}
+.singleproduct .buy-btn{
+    padding: 5px 40px;
+    background-color: grey;
+    opacity: 1;
+    transition: 0.4s all;
+}
+.singleproduct .buy-btn:hover{
+    background-color: black;
+}
 /*utility
 .btn{
     padding: 20;
