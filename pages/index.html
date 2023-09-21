@@ -1,126 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sneaker Store</title>
     <!-- Add Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- Add custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- Add fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&family=Fira+Sans:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
 
 </head>
+
 <body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <div class="navbar-left">
-            <h1 class="navbar-brand lit-text">LIT</h1>
-            <p class="navbar-subtext">sneaker store</p>
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#new-arrivals">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#products">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#cart">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-<!-- Banner Section -->
-<section class="banner text-center text-white py-5">
-    <div class="container">
-        <h1 class="display-4">Welcome to Our Sneaker Store</h1>
-        <p class="lead">Discover the latest trends in footwear</p>
-        <a href="#new-arrivals" class="btn btn-primary btn-lg">Shop Now</a>
-    </div>
-</section>
-
-<!-- New Arrival Carousel Section -->
-<section id="new-arrivals" class="new-arrivals py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">New Arrivals</h2>
-        <div id="carouselExample" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <!-- Carousel items go here -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <a class="navbar-brand order-md-0" href="#">
+                    <img src="../images/Logo/litlogo.jpg" alt="litlogo" width="45" height="24">
+                </a>
+                <button class="navbar-toggler order-md-1" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-            <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 custom custom-ul">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-shopping-bag"></i>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<!-- Featured Products Section -->
-<section id="featured-products" class="featured-products py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Featured Products</h2>
+
+
+    <!-- Home -->
+    <section id="home">
+        <div class="container">
+            <h5>New arrival</h5>
+            <h1><span>Best Prices</span> for this season.</h1>
+            <p>Eshop offers the best products for the most affordable prices.</p>
+            <button>Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Brand -->
+    <section id="brand" class="container">
         <div class="row">
-            <!-- Featured product cards go here -->
+            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="../images/Logo/litlogo.jpg" />
+            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="../images/Logo/litlogo.jpg" />
+            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="../images/Logo/litlogo.jpg" />
+            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="../images/Logo/litlogo.jpg" />
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="contact py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Contact Us</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <form>
-                    <!-- Contact form goes here -->
-                </form>
+    <!-- New -->
+    <section id="new" class="w-100">
+        <div class="row p-0 m-0">
+            <!--one-->
+            <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
+                <img class="img-fluid" src="../images/Logo/litlogo.jpg"/>
+                <div class="details">
+                    <h2>Extremely Awesome Shoes</h2>
+                    <button class="text-uppercase">Shop Now</button>
+                </div>
             </div>
-            <div class="col-md-6">
-                <address>
-                    <!-- Contact information goes here -->
-                </address>
+            <!--two-->
+            <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
+                <img class="img-fluid" src="../images/Logo/litlogo.jpg"/>
+                <div class="details">
+                    <h2>Very Awesome Sneaker</h2>
+                    <button class="text-uppercase">Shop Now</button>
+                </div>
+            </div>
+            <!--three-->
+            <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
+                <img class="img-fluid" src="../images/Logo/litlogo.jpg"/>
+                <div class="details">
+                    <h2>Nice and Awesome Shoes</h2>
+                    <button class="text-uppercase">Shop Now</button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Footer Section -->
-<footer class="footer bg-dark text-white py-4">
-    <div class="container text-center">
-        <p>&copy; 2023 Sneaker Store</p>
-    </div>
-</footer>
-
-<!-- Add Bootstrap JS and your custom JavaScript -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="scripts.js"></script>
+    <!-- Add Bootstrap JS and your custom JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <script src="../js/script.js"></script>
 </body>
+
 </html>
