@@ -1,5 +1,7 @@
 <?php
 
- include 'navigation.html';
+ include 'navigation.php';
+ include 'index.html';
+ include 'footer.php'
 
 ?>
