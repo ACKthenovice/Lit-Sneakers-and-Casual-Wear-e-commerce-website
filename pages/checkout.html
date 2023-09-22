@@ -57,105 +57,43 @@
         </div>
     </nav>
 
-    <!--singleproduct-->
-    <section class="container singleproduct my-5 pt-5"> 
-        <div class="row mt-5">
-            <div class="col-lg-5 col-md-6 col-sm-12">
-                <img  id="mainImg"  class="img-fluid w-100 pb-1" src="../images/web images/Product images/air_force.png" alt="">
-                <div class="small-img-group">
-                    <div class="small-img-col">
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="small-img" width="100%">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="small-img" width="100%">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="small-img" width="100%">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="small-img" width="100%">
-                    </div>
+    <section class="my-5 py-5">
+        <div class="container text-center mt-3 pt-5">
+            <h2 class="form-weight-bold">Checkout</h2>
+            <hr class="mx-auto"> 
+        </div>
+        <div class="mx-auto container">
+            <form id="checkout-form">
+                <div class="form-group checkout-small-elements">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="checkout-name" name="name" placeholder="Name" required/>
                 </div>
-            </div>
-            
-            <div class="col-lg-6 col-md-12 col-sm-12">
-                <h6>Men/Shoes</h6>
-                <h3 class="pb-4">NIKE AIR</h3>
-                <h2>12.30$</h2>
-                <input type="number" value="1">
-                <button class="buy-btn">Add to Cart</button>
-                <h4 class="mt-5 mb-5">Product Details</h4>
-                <span>The details of this product will be displayed shortly
-                    The details of this product will be displayed shortly
-                    The details of this product will be displayed shortly
-                    The details of this product will be displayed shortly
-                </span>
-            </div>
+                <div class="form-group checkout-small-elements">
+                    <label>Email</label>
+                    <input type="text" class="form-control" id="checkout-email" name="email" placeholder="Email" required/>
+                </div>
+                <div class="form-group checkout-small-elements">
+                    <label>Phone</label>
+                    <input type="tel" class="form-control" id="checkout-phone" name="phone" placeholder="Phone" required/>
+                </div>
+                <div class="form-group checkout-small-elements">
+                    <label>City</label>
+                    <input type="text" class="form-control" id="checkout-city" name="city" placeholder="City" required/>
+                </div>
+                <div class="form-group checkout-large-elements">
+                    <label>Address</label>
+                    <input type="text" class="form-control" id="checkout-address" name="address" placeholder="Address" required/>
+                </div>
+                <div class="form-group checkout-btn-container">
+                    <input type="submit" class="btn" id="checkout-btn" value="Checkout"/>
+                </div>
+            </form>
         </div>
     </section>
 
-    <!--Relatedproduct-->
-    <section id="related-products" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>related-products</h3>
-            <hr class="mx-auto">
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="../images/web images/Product images/air-force-white-black.jpg"/>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="../images/web images/Product images/air_force.png "/>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="../images/web images/Product images/air_force_one-transformed.png"/>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="../images/web images/Product images/nike_airmax-removebg-preview (1).png"/>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
-            </div>
-        </div>
 
-    </section>
+
+
     <footer>
         <div class="footer">
             <div class="container">
@@ -206,12 +144,12 @@
     <script>
         var mainImg=document.getElementById("mainImg");
         var smallImg= document.getElementsByClassName("small-img");
-        
+
         for(let i=0; i<4; i++){
-            smallImg[i].onclick =function(){
-            mainImg.src = smallImg[i].src;
-            }
+            smallImg(i).onclick =function(){
+            mainImg.src = smallImg(i).src;
         }
+    }
     </script>
 </body>
 </html>
