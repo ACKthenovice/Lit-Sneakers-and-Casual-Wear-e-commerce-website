@@ -279,9 +279,13 @@
             <hr>
             <p>Here you can check our featured products.</p>
         </div>
+        <?php include '../server/get_featured_products.php' ?>
+        <?php while($row=$featured_products->fetch_assoc()){ ?>
+
+        
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="../images/web images/Product images/air-force-white-black.jpg" />
+                <img class="img-fluid mb-3" src="<?php echo $row['img_url'];?>"/>
                 <div class="star">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -289,51 +293,13 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
+                <h5 class="p-name"><?php echo $row['name']; ?></h5>
+                <h4 class="p-price">$<?php echo $row['price'];?></h4>
+                <a href="<?php echo "singleproduct.php?id=".$row['id'];?>"><button class="buy-btn">Buy Now</button></a>
             </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="../images/web images/Product images/air_force.png " />
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="../images/web images/Product images/air_force_one-transformed.png" />
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3"
-                    src="../images/web images/Product images/nike_airmax-removebg-preview (1).png" />
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
-            </div>
-        </div>
+            
+        </div> 
+        <?php } ?>
 
     </section>
 
