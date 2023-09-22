@@ -1,7 +1,7 @@
 // script.js
 
 // Product data
-const products = [
+/*const products = [
     {
         name: "Product 1",
         price: 99.99,
@@ -67,4 +67,4 @@ function Toggle(){
     else{
         heartBtn.style.color="red"
     }
-}
+}*/
