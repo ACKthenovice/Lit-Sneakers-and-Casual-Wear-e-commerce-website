@@ -1,6 +1,19 @@
+<?php
+include '../server/connection.php';
+if(isset($_GET['id'])){
+    $product_id= $_GET['id'];
+    $stmt =$conn->prepare("SELECT * FROM products WHERE id=?");/*stmt=variable statement*/
+    $stmt->bind_param("i",$product_id);
+    $stmt->execute();
+    
+    $product  =$stmt->get_result();
+}
+else{
+    header('location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,9 +73,11 @@
     <!--singleproduct-->
     <section class="container singleproduct my-5 pt-5"> 
         <div class="row mt-5">
+
+            <?php while($row=$product->fetch_assoc()){?>
             <div class="col-lg-5 col-md-6 col-sm-12">
-                <img  id="mainImg"  class="img-fluid w-100 pb-1" src="../images/web images/Product images/air_force.png" alt="">
-                <div class="small-img-group">
+                <img  id="mainImg"  class="img-fluid w-100 pb-1" src="<?php echo $row['img_url'];?>" alt="">
+                <!--<div class="small-img-group">
                     <div class="small-img-col">
                         <img src="../images/web images/Product images/air_force_one-transformed.png" class="small-img" width="100%">
                     </div>
@@ -75,22 +90,23 @@
                     <div class="small-img-col">
                         <img src="../images/web images/Product images/air_force_one-transformed.png" class="small-img" width="100%">
                     </div>
-                </div>
+                </div>-->
             </div>
+
+           
             
             <div class="col-lg-6 col-md-12 col-sm-12">
                 <h6>Men/Shoes</h6>
-                <h3 class="pb-4">NIKE AIR</h3>
-                <h2>12.30$</h2>
+                <h3 class="pb-4"><?php echo $row['name'];?></h3>
+                <h2>$<?php echo $row['price'];?></h2>
                 <input type="number" value="1">
                 <button class="buy-btn">Add to Cart</button>
                 <h4 class="mt-5 mb-5">Product Details</h4>
-                <span>The details of this product will be displayed shortly
-                    The details of this product will be displayed shortly
-                    The details of this product will be displayed shortly
-                    The details of this product will be displayed shortly
+                <span><?php echo $row['description'];?>
                 </span>
             </div>
+
+            <?php } ?>
         </div>
     </section>
 
