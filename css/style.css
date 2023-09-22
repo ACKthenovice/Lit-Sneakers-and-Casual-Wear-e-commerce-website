@@ -404,3 +404,9 @@ th:first-child{
     color: #FDEFEF;
     background-color: #000;
 }
+
+
+#contact span{
+    color: #00563e;
+    font-weight: bold;
+}
