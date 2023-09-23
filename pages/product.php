@@ -41,10 +41,10 @@
         </div>
         
         <div class="row mx-auto container">
-            <?php include '../server/get_featured_products.php' ?>
-            <?php while($row=$featured_products->fetch_assoc()){ ?>
+            <?php //include '../server/get_featured_products.php' ?>
+            <?php //while($row=$featured_products->fetch_assoc()){ ?>
                 <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="<?php echo $row['img_url'];?>" />
+                <img class="img-fluid mb-3" src="<?php //echo $row['img_url'];?>" />
                 <div class="star">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -52,11 +52,11 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <h5 class="p-name"><?php echo $row['name']; ?></h5>
-                <h4 class="p-price">$<?php echo $row['price'];?></h4>
-                <a href="<?php echo "singleproduct.php?id=".$row['id'];?>"><button class="buy-btn">Buy Now</button></a>
+                <h5 class="p-name"><?php //echo $row['name']; ?></h5>
+                <h4 class="p-price">$<?php //echo $row['price'];?></h4>
+                <a href="<?php //echo "singleproduct.php?id=".$row['id'];?>"><button class="buy-btn">Buy Now</button></a>
                 </div>
-                <?php } ?>
+                <?php //} ?>
         </div> 
     </section>-->
 
@@ -108,13 +108,13 @@
                                 </button>
                             </div>
                         </div>
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="card-img-top" alt="casualwear"   >
+                        <img src="../images/web images/Product images/5c0adc3c-6bdd-4378-9d13-69229a797b9c (1).jpg" class="card-img-top" alt="casualwear"   >
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-6 col-md-5"><h3 class="card-title mb-4">NIKE <span class="font-card ms-2">air-force-one</span></h5></div>
+                                <div class="col-lg-6 col-md-5"><h3 class="card-title mb-4">NIKE <span class="font-card ms-2">air-max</span></h5></div>
                                 <div class="col-lg-6 col-md-5">
                                     <p class="price mt-1 " id="price">
-                                        $135.00
+                                        $500.00
                                         <button class="btn-cart ms-5" id="cart">
                                             <i class="fas fa-shopping-bag fa-2xl "></i>
                                         </button>
@@ -139,13 +139,13 @@
                                 </button>
                             </div>
                         </div>
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="card-img-top" alt="casualwear">
+                        <img src="../images/web images/Product images/newbalance.jpg" class="card-img-top" alt="casualwear">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-6 col-md-5"><h3 class="card-title mb-4">NIKE <span class="font-card ms-2">air-force-one</span></h5></div>
+                                <div class="col-lg-6 col-md-5"><h3 class="card-title mb-4">NewBalance <span class="font-card ms-2">847v4</span></h5></div>
                                 <div class="col-lg-6 col-md-5">
                                     <p class="price mt-1 " id="price">
-                                        $135.00
+                                        $119.99
                                         <button class="btn-cart ms-5" id="cart">
                                             <i class="fas fa-shopping-bag fa-2xl "></i>
                                         </button>
@@ -173,13 +173,13 @@
                                 </button>
                             </div>
                         </div>
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="card-img-top" alt="casualwear"   >
+                        <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear"   >
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-6 col-md-5"><h3 class="card-title mb-4">NIKE <span class="font-card ms-2">air-force-one</span></h5></div>
+                                <div class="col-lg-6 col-md-5"><h3 class="card-title mb-4">ADIDAS <span class="font-card ms-2">campus</span></h5></div>
                                 <div class="col-lg-6 col-md-5">
                                     <p class="price mt-1 " id="price">
-                                        $135.00
+                                        $110
                                         <button class="btn-cart ms-5" id="cart">
                                             <i class="fas fa-shopping-bag fa-2xl "></i>
                                         </button>
@@ -204,13 +204,13 @@
                                 </button>
                             </div>
                         </div>
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="card-img-top" alt="casualwear"   >
+                        <img src="../images/web images/Product images/converse-one.jpg" class="card-img-top" alt="casualwear"   >
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-6 col-md-5"><h3 class="card-title mb-4">NIKE <span class="font-card ms-2">air-force-one</span></h5></div>
+                                <div class="col-lg-6 col-md-5"><h3 class="card-title mb-4">CONVERSE <span class="font-card ms-2">chuck-taylor</span></h5></div>
                                 <div class="col-lg-6 col-md-5">
                                     <p class="price mt-1 " id="price">
-                                        $135.00
+                                        $69.99
                                         <button class="btn-cart ms-5" id="cart">
                                             <i class="fas fa-shopping-bag fa-2xl "></i>
                                         </button>
@@ -235,13 +235,13 @@
                                 </button>
                             </div>
                         </div>
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="card-img-top" alt="casualwear"   >
+                        <img src="../images/web images/Product images/nike-zoom.jpg" class="card-img-top" alt="casualwear"   >
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-6 col-md-5"><h3 class="card-title mb-4">NIKE <span class="font-card ms-2">air-force-one</span></h5></div>
+                                <div class="col-lg-6 col-md-5"><h3 class="card-title mb-4">NIKE <span class="font-card ms-2">zoom</span></h5></div>
                                 <div class="col-lg-6 col-md-5">
                                     <p class="price mt-1 " id="price">
-                                        $135.00
+                                        $152.27
                                         <button class="btn-cart ms-5" id="cart">
                                             <i class="fas fa-shopping-bag fa-2xl "></i>
                                         </button>
