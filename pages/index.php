@@ -37,7 +37,7 @@
                         <h1 class="hero-title mt-4"><span>Best Prices</span> for this season.</h1>
                         <p class="hero-description">Eshop offers the best products at the most affordable prices. Explore
                             our collection today.</p>
-                        <button class="hero-button">Explore More</button>
+                        <button class="hero-button"><a class="btn" href="../pages/product.php">Explore More</a></button>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <img src="../images/shoe-banner.png" class="img-fluid" alt="Banner Image">
@@ -388,7 +388,7 @@
                     </div>
 
                     <div class="text-center mt-4">
-                        <a href="#" class="btn btn-primary btn-lg product-btn">Shop Now</a>
+                        <a href="../pages/product.php" class="btn btn-primary btn-lg product-btn">Shop Now</a>
                     </div>
                 </div>
             </div>
