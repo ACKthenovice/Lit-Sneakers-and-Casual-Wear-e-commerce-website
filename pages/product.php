@@ -20,13 +20,18 @@
     <!-- Navbar -->
     <?php include 'navigation.php';?>
     <!--Banner-->
-    <section id="Banner">
-        <div class="container mt-5">
-            <div class="row">
-                <h1 class="hero-title mt-4">Products</h1>
+    <div class="banner_product d-flex ">
+        <div class="container-fluid mt-5">
+            <div class="overlay ">
+                <div class="container ">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                        <h1 class="mt-5">Products </h1>
+                    </div>
+                </div>
             </div>
+            
         </div>
-    </section>
+    </div>
     <!--Prouduct-->
     <!--<section id="featured" class="my-5 pb-5">
         <div class="container text-center mt-5 py-5">
@@ -260,7 +265,7 @@
     </section> 
 
     <!--Pagination-->
-    <nav aria-label="Page text-center navigation">
+    <!--<nav aria-label="Page text-center navigation">
         <div class="container ">
         <ul class="pagination mt-5">
             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -271,7 +276,7 @@
         </ul>
         </div>
         
-    </nav>
+    </nav>-->
 
 
 
