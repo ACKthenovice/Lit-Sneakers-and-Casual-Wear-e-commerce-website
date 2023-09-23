@@ -47,7 +47,7 @@
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <i class="fas fa-shopping-bag"></i>
+                        <a href="cart.php"><button><i class="fas fa-shopping-bag"></i></button></a>
                     </li>
                 </ul>
             </div>
