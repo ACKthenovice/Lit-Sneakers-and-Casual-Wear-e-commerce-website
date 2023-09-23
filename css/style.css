@@ -807,3 +807,54 @@ th:first-child {
     width: 100px;
     height: auto;
 }
+
+
+/*Contact Us*/
+
+/* Apply styles to custom-form class */
+.custom-form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Apply styles to custom-label class */
+.custom-label {
+    font-weight: bold;
+    font-size: 18px;
+    color: #007bff;
+}
+
+/* Apply styles to custom-input class */
+.custom-input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Apply styles to custom-textarea class */
+.custom-textarea {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Apply styles to custom-button class */
+.custom-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+}
