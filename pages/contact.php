@@ -22,23 +22,6 @@
     <!-- Navigation -->
     <?php include 'navigation.php'; ?>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1>Contact Us</h1>
-                </div>
-                <div class="col-md-6">
-                    <ol class="breadcrumb">
-                        <li><a href="index.php">Home</a></li>
-                        <li class="active">Contact</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!-- Main Content -->
     <section id="contact-form">
         <div class="container">
@@ -115,10 +98,6 @@
         </div>
     </section>
 
-    <!-- Map -->
-    <section class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.0149810809867!2d-122.40096138504418!3d37.78770568189265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580e7216df043%3A0x7c17d44aa02511c4!2sTwitter%2C+Inc.!5e0!3m2!1sen!2sus!4v1508393058581" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </section>
 
     <!-- Footer -->
     <?php include 'footer.php'; ?>
