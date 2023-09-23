@@ -37,7 +37,7 @@
 
     
 
-    <!-- Brand
+    <!-- Brand -->
     <section id="brand">
         <div class="container">
             <h2 class="text-center mb-3">Our Products</h2>
@@ -240,12 +240,12 @@
             
         </div>
         
-    </section> -->
+    </section>
 
-    <!-- New -->
+    <!-- New
     <section id="new" class="w-100">
         <div class="row p-0 m-0">
-            <!--one-->
+            
             <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
                 <img class="img-fluid" src="../images/Logo/litlogo.jpg" />
                 <div class="details">
@@ -253,7 +253,7 @@
                     <button class="text-uppercase">Shop Now</button>
                 </div>
             </div>
-            <!--two-->
+            
             <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
                 <img class="img-fluid" src="../images/Logo/litlogo.jpg" />
                 <div class="details">
@@ -261,7 +261,7 @@
                     <button class="text-uppercase">Shop Now</button>
                 </div>
             </div>
-            <!--three-->
+            
             <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
                 <img class="img-fluid" src="../images/Logo/litlogo.jpg" />
                 <div class="details">
@@ -270,7 +270,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!--Featured Prouduct-->
     <section id="featured" class="my-5 pb-5">
