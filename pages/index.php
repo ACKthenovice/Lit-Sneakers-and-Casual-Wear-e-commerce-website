@@ -70,8 +70,8 @@
                                     <!--img=-->
                                     <div class="product-img">
                                         <a href="http://demo47.askas8.se/sv/front-brake-assy-37-5-12-14">
-                                            <img alt="" class="product-img-front" src="../images/New_Arrival/item-2.jpg" />
-                                            <img alt="" class="product-img-back" src="../images/New_Arrival/item-2.jpg" />
+                                            <img alt="" class="product-img-front" src="../images/New_Arrival/addidas.jpg" />
+                                            <img alt="" class="product-img-back" src= "../images/New_Arrival/addidas.jpg"/>
                                         </a>
                                     </div>
                                 </div>
@@ -79,11 +79,11 @@
                                 <div class="product-box-text">
                                     <!--category-->
                                     <div class="product-category">
-                                        <span>Yeezy</span>
+                                        <span>Addidas</span>
                                     </div>
                                     <!--tile-->
                                     <a href="http://demo47.askas8.se/sv/front-brake-assy-37-5-12-14" class="product-title">
-                                        Men Casual Shoes Sports Shoes for Men Breathable
+                                        Super Star Shoes
                                     </a>
                                     <!--Price-->
                                     <div class="price-buy">
@@ -116,11 +116,11 @@
                                 <div class="product-box-text">
                                     <!--category-->
                                     <div class="product-category">
-                                        <span>Brand Name</span>
+                                        <span>Nike</span>
                                     </div>
                                     <!--tile-->
                                     <a href="#" class="product-title">
-                                        Men Casual Shoes Sports Shoes for Men Breathable
+                                        Nike Air Max
                                     </a>
                                     <!--Price-->
                                     <div class="price-buy">
@@ -144,8 +144,8 @@
                                     <!--img=-->
                                     <div class="product-img">
                                         <a href="#">
-                                            <img alt="" class="product-img-front" src="../images/New_Arrival/item-2.jpg" />
-                                            <img alt="" class="product-img-back" src="../images/New_Arrival/item-2.jpg" />
+                                            <img alt="" class="product-img-front" src= "../images/New_Arrival/item-1.png"/>
+                                            <img alt="" class="product-img-back" src= "../images/New_Arrival/item-1.png"/>
                                         </a>
                                     </div>
                                 </div>
@@ -154,11 +154,11 @@
                                 <div class="product-box-text">
                                     <!--category-->
                                     <div class="product-category">
-                                        <span>Brand Name</span>
+                                        <span>Yeezy</span>
                                     </div>
                                     <!--tile-->
                                     <a href="#" class="product-title">
-                                        Men Casual Shoes Sports Shoes for Men Breathable
+                                        Men Casual Shoes Sports Shoes for Men 
                                     </a>
                                     <!--Price-->
                                     <div class="price-buy">
@@ -182,8 +182,8 @@
                                     <!--img=-->
                                     <div class="product-img">
                                         <a href="#">
-                                            <img alt="" class="product-img-front" src="../images/New_Arrival/item-2.jpg" />
-                                            <img alt="" class="product-img-back" src="../images/New_Arrival/item-2.jpg" />
+                                            <img alt="" class="product-img-front" src="../images/New_Arrival/item-4.jpg" />
+                                            <img alt="" class="product-img-back" src="../images/New_Arrival/item-4.jpg" />
                                         </a>
                                     </div>
                                 </div>
@@ -192,11 +192,11 @@
                                 <div class="product-box-text">
                                     <!--category-->
                                     <div class="product-category">
-                                        <span>Brand Name</span>
+                                        <span>Addidas</span>
                                     </div>
                                     <!--tile-->
                                     <a href="#" class="product-title">
-                                        Men Casual Shoes Sports Shoes for Men Breathable
+                                        Blue Sport Wear
                                     </a>
                                     <!--Price-->
                                     <div class="price-buy">
@@ -220,8 +220,8 @@
                                     <!--img=-->
                                     <div class="product-img">
                                         <a href="#">
-                                            <img alt="" class="product-img-front" src="../images/New_Arrival/item-2.jpg" />
-                                            <img alt="" class="product-img-back" src="../images/New_Arrival/item-2.jpg" />
+                                            <img alt="" class="product-img-front" src="../images/New_Arrival/item-14.jpg" />
+                                            <img alt="" class="product-img-back" src="../images/New_Arrival/item-14.jpg" />
                                         </a>
                                     </div>
                                 </div>
@@ -230,11 +230,11 @@
                                 <div class="product-box-text">
                                     <!--category-->
                                     <div class="product-category">
-                                        <span>Brand Name</span>
+                                        <span>Nike</span>
                                     </div>
                                     <!--tile-->
                                     <a href="#" class="product-title">
-                                        Men Casual Shoes Sports Shoes for Men Breathable
+                                        Neon Casual
                                     </a>
                                     <!--Price-->
                                     <div class="price-buy">
@@ -258,8 +258,8 @@
                                     <!--img=-->
                                     <div class="product-img">
                                         <a href="#">
-                                            <img alt="" class="product-img-front" src="../images/New_Arrival/item-2.jpg" />
-                                            <img alt="" class="product-img-back" src="../images/New_Arrival/item-2.jpg" />
+                                            <img alt="" class="product-img-front" src="../images/New_Arrival/item-16.jpg" />
+                                            <img alt="" class="product-img-back" src="../images/New_Arrival/item-16.jpg" />
                                         </a>
                                     </div>
                                 </div>
@@ -268,11 +268,11 @@
                                 <div class="product-box-text">
                                     <!--category-->
                                     <div class="product-category">
-                                        <span>Brand Name</span>
+                                        <span>Converse</span>
                                     </div>
                                     <!--tile-->
                                     <a href="#" class="product-title">
-                                        Men Casual Shoes Sports Shoes for Men Breathable
+                                        Green Day
                                     </a>
                                     <!--Price-->
                                     <div class="price-buy">
