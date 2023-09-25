@@ -239,7 +239,10 @@ h6 {
 .product-img-container:hover .product-img-front {
     display: none;
 }
-
+.cart_button_product{
+    text-decoration: none;
+    border: none;
+}
 @keyframes fade {
     0% {
         opacity: 0;
@@ -765,10 +768,13 @@ utility .btn {
 }
 
 
-.cart .remove-btn {
+.remove-btn {
     color: rgb(28, 1, 51);
     text-decoration: none;
     font-size: 14px;
+    background-color: white;
+    border: none;
+    width: 100%;
 
 }
 
@@ -776,7 +782,9 @@ utility .btn {
     color: rgb(28, 1, 51);
     text-decoration: none;
     font-size: 14px;
-
+    background-color: white;
+    border: none;
+    width: 100%;
 }
 
 .cart .product-info p {

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,162 +42,22 @@
             <div class="Gallery">
 
                 <!--Products-->
-
+                <?php include '../server/get_featured_products.php'?>
+                <?php while($row=$featured_products->fetch_assoc()){?>
                 <div class="product-card">
                     <div class="pheading">
                         <span class="product-status">In Stock</span>
                         <i class="fas fa-heart fa-xl"></i>
                     </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
+                    <img src="<?php echo $row['img_url']?>" class="card-img-top" alt="casualwear">
                     <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
+                        <h4 class="product-name"><?php echo $row['name']?> <span class="product-model">Campus</span></h4>
+                        <span class="product-price">$<?php echo $row['price']?></span>
+                        <a  style="text-decoration: none;"  href="<?php echo "singleproduct.php?id=".$row['id'];?>">
+                        <button class="cart_button_product"><i class="fas fa-shopping-bag fa-xl"></i></button></a>
                     </div>
                 </div>
-
-                <div class="product-card">
-                    <div class="pheading">
-                        <span class="product-status">In Stock</span>
-                        <i class="fas fa-heart fa-xl"></i>
-                    </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
-                    <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="pheading">
-                        <span class="product-status">In Stock</span>
-                        <i class="fas fa-heart fa-xl"></i>
-                    </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
-                    <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="pheading">
-                        <span class="product-status">In Stock</span>
-                        <i class="fas fa-heart fa-xl"></i>
-                    </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
-                    <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="pheading">
-                        <span class="product-status">In Stock</span>
-                        <i class="fas fa-heart fa-xl"></i>
-                    </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
-                    <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="pheading">
-                        <span class="product-status">In Stock</span>
-                        <i class="fas fa-heart fa-xl"></i>
-                    </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
-                    <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="pheading">
-                        <span class="product-status">In Stock</span>
-                        <i class="fas fa-heart fa-xl"></i>
-                    </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
-                    <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="pheading">
-                        <span class="product-status">In Stock</span>
-                        <i class="fas fa-heart fa-xl"></i>
-                    </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
-                    <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="pheading">
-                        <span class="product-status">In Stock</span>
-                        <i class="fas fa-heart fa-xl"></i>
-                    </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
-                    <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="pheading">
-                        <span class="product-status">In Stock</span>
-                        <i class="fas fa-heart fa-xl"></i>
-                    </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
-                    <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="pheading">
-                        <span class="product-status">In Stock</span>
-                        <i class="fas fa-heart fa-xl"></i>
-                    </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
-                    <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="pheading">
-                        <span class="product-status">In Stock</span>
-                        <i class="fas fa-heart fa-xl"></i>
-                    </div>
-                    <img src="../images/web images/Product images/addidas.jpg" class="card-img-top" alt="casualwear">
-                    <div class="product-info">
-                        <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
-                        <span class="product-price">$110</span>
-                        <i class="fas fa-shopping-bag fa-xl"></i>
-                    </div>
-                </div>
+                <?php }?>
             </div>
         </div>
     </section>
