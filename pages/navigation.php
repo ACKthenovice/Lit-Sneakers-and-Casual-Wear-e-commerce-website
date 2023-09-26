@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
 <!DOCTYPE html>
@@ -41,10 +42,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.php">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="cart.php" class="nav-link">
-                            <i class="fas fa-shopping-bag"></i>
-                        </a>
+                    <a  style="text-decoration: none;"  href="cart.php">
+                        <i class="fas fa-shopping-bag fa-xl"></i></a>
                     </li>
                 </ul>
             </div>
