@@ -1,3 +1,17 @@
+<?php
+include '../server/connection.php';
+if(isset($_GET['id'])){
+    $product_id= $_GET['id'];
+    $stmt =$conn->prepare("SELECT * FROM products WHERE id=?");/*stmt=variable statement*/
+    $stmt->bind_param("i",$product_id);
+    $stmt->execute();
+    
+    $product  =$stmt->get_result();
+}
+else{
+    header('location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,37 +73,50 @@
     <!--singleproduct-->
     <section class="container singleproduct my-5 pt-5"> 
         <div class="row mt-5">
-            <div class="col-lg-5 col-md-6 col-sm-12">
-                <img  id="mainImg"  class="img-fluid w-100 pb-1" src="../images/web images/Product images/air_force.png" alt="">
-                <div class="small-img-group">
-                    <div class="small-img-col">
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="small-img" width="100%">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="small-img" width="100%">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="small-img" width="100%">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="../images/web images/Product images/air_force_one-transformed.png" class="small-img" width="100%">
+
+            <?php while($row=$product->fetch_assoc()){?>
+            
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <img  id="mainImg"  class="img-fluid w-100 pb-1" src="<?php echo $row['img_url'];?>" alt="">
+                    <div class="container small-img-group mt-3">
+                        <div class="small-img-col">
+                            <img src="../images/web images/Product images/addidas.jpg" class="small-img" width="80%">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="../images/web images/Product images/small_images/campus_small_img_1.webp" class="small-img" width="80%">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="../images/web images/Product images/small_images/campus_small_img_2.webp" class="small-img" width="80%">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="../images/web images/Product images/small_images/campus_small_img_3.webp" class="small-img" width="80%">
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-lg-6 col-md-12 col-sm-12">
-                <h6>Men/Shoes</h6>
-                <h3 class="pb-4">NIKE AIR</h3>
-                <h2>12.30$</h2>
-                <input type="number" value="1">
-                <button class="buy-btn">Add to Cart</button>
-                <h4 class="mt-5 mb-5">Product Details</h4>
-                <span>The details of this product will be displayed shortly
-                    The details of this product will be displayed shortly
-                    The details of this product will be displayed shortly
-                    The details of this product will be displayed shortly
-                </span>
-            </div>
+
+           
+          
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <h6>Men/Shoes</h6>
+                    <h3 class="pb-4"><?php echo $row['name'];?></h3>
+                    <h2>$<?php echo $row['price'];?></h2>
+                    
+
+                    <form method="POST" action="cart.php">
+                        <input type="hidden" name="product_id" value="<?php echo $row['id'];?>">
+                        <input type="hidden" name="product_image" value="<?php echo $row['img_url'];?>">
+                        <input type="hidden" name="product_name" value="<?php echo $row['name'];?>">
+                        <input type="hidden" name="product_price" value="<?php echo $row['price'];?>">
+                        <input type="number" name="product_quantity" value="1">
+                        <button class="buy-btn"  name="add_to_cart" type="submit">Add to Cart</button>
+                    </form>
+                    
+                    <h4 class="mt-5 mb-5">Product Details</h4>
+                    <span><?php echo $row['description'];?>
+                    </span>
+                </div>
+           
+            <?php } ?>
         </div>
     </section>
 
