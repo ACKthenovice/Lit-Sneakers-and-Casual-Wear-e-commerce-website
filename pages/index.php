@@ -4,22 +4,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sneaker Store</title>
-    <!-- Add Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <!-- Add custom CSS -->
-    <link rel="stylesheet" href="../css/style.css">
-    <!-- Add fontawesome -->
-    <script src="https://kit.fontawesome.com/07c9fa584f.js" crossorigin="anonymous"></script>
-    <!--Swiper Bundle for Slider-->
-    <!--Swiper CSS-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <!--Swiper JS-->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-
+    <?php include 'component/header.php' ?>
 </head>
 
 <body>
@@ -27,7 +13,7 @@
     <body>
 
         <!-- Navbar -->
-        <?php include 'navigation.php' ?>
+        <?php include 'component/navigation.php' ?>
 
         <!-- Home -->
         <section id="Banner">
@@ -394,8 +380,6 @@
             </div>
         </section>
 
-
-
         <!--Product-Partner-->
         <section id="product-partener">
             <h3 class="pb-4">Product Partner</h3>
@@ -408,50 +392,10 @@
         </section>
 
         <?php
-        include 'footer.php';
+        include 'component/footer.php';
         ?>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-        <script src="../js/script.js"></script>
-
-        <script>
-            var swiper = new Swiper(".mySwiper", {
-                slidesPerView: 1,
-                spaceBetween: 10,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-                autoplay: {
-                    delay: 6000,
-                    disableOnInteraction: false,
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                breakpoints: {
-                    360: {
-                        slidesPerView: 1.5,
-                        spaceBetween: 20,
-                    },
-                    540: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    1200: {
-                        slidesPerView: 4,
-                        spaceBetween: 40,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 20,
-                    },
-                },
-            })
-        </script>
+        <?php include 'component/jslink.php' ?>
 
     </body>
 
