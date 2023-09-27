@@ -26,7 +26,7 @@ if(isset($_POST['add_to_cart'])){
             //echo '<script>window.location="index.php";</script>';
         }
 
-        //if this is the first product
+        //if this is the first product lj;jk;jl;kdja;lksdjf
     }else{
 
         $product_id=$_POST['product_id'];
