@@ -1,6 +1,11 @@
 <head>
     <title>Navigation</title>
-    <?php include 'header.php' ?>
+    <?php include 'header.php';
+    /*if(isset($_SESSION['logged_in'])){
+        header('location: account.php');
+        exit;
+      }*/
+    ?>
 </head>
 
 <body>
