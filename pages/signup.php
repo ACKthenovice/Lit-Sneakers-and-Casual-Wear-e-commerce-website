@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Sneaker Store</title>
+  <title>Sign Up</title>
   <?php include 'component/header.php' ?>
 
 </head>
