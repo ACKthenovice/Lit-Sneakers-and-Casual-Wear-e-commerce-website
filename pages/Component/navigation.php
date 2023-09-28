@@ -6,28 +6,42 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
-        <a class="navbar-brand" href="index.php">
-            <img class="logo" src="../images/Logo/litlogo-removebg-preview.png" alt="litlogo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <ul class="navbar-nav ml-auto">
+    <nav class="navbar navbar-expand-lg blur top-0 z-index-3 shadow py-2 start-0 end-0 sticky-top">
+        <div class="container-fluid ps-2 pe-0">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="index.php">
+                L I T
+            </a>
+            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon mt-2">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </span>
+            </button>
+            <div id="navigation">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link d-flex align-items-center me-2" aria-current="page" href="../pages/index.php">
+                            <i class="fa-sharp fa-solid fa-house opacity-6 text-dark me-1"></i>
+                            Home
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="product.php">Products</a>
+                        <a class="nav-link me-2" href="product.php">
+                            <i class="fa-sharp fa-solid fa-box opacity-6 text-dark me-1"></i>
+                            Products
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
+                        <a class="nav-link me-2" href="contact.php">
+                            <i class="fa-solid fa-envelope opacity-6 text-dark me-1"></i>
+                            Contact Us
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="cart.php" class="nav-link">
-                            <i class="fa-solid fa-bag-shopping fa-bounce"></i>
+                        <a class="nav-link me-2" href="signin.php">
+                            <i class="fa fa-user opacity-6 text-dark me-1"></i>
+                            Sign In
                         </a>
                     </li>
                 </ul>
