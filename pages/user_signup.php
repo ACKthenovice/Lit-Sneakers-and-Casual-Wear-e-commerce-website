@@ -54,8 +54,11 @@ session_start();
             }
 
         }
-    }
-    
+    }//if user has already registered, then take user to account page.
+    /*else if(isset($_SESSION['logged_in'])){
+        header('location: account.php');
+        exit;
+    }*/
 ?>
 
 <!DOCTYPE html>
