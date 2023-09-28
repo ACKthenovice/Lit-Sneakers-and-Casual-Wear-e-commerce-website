@@ -28,39 +28,34 @@
                 </div>
                 <div class="card-body">
                   <form role="form">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                      <div class="input-group input-group-outline">
-                        <label class="form-label">Type here...</label>
-                        <input type="text" class="form-control">
-                      </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <label class="form-label"></label>
+                      <input type="text" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Name">
                     </div>
                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Name</label>
-                      <input type="text" class="form-control">
+                      <label class="form-label"></label>
+                      <input type="email" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Email">
                     </div>
                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Email</label>
-                      <input type="email" class="form-control">
-                    </div>
-                    <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Password</label>
-                      <input type="password" class="form-control">
+                      <label class="form-label"></label>
+                      <input type="password" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Password">
                     </div>
                     <div class="form-check form-check-info text-start ps-0">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
                       <label class="form-check-label" for="flexCheckDefault">
-                        I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                        I agree to the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
                       </label>
                     </div>
                     <div class="text-center">
                       <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
                     </div>
                   </form>
+
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-2 text-sm mx-auto">
                     Already have an account?
-                    <a href="../pages/sign-in.html" class="text-primary text-gradient font-weight-bold">Sign in</a>
+                    <a href="signin.php" class="text-primary text-gradient font-weight-bold">Sign in</a>
                   </p>
                 </div>
               </div>
@@ -71,6 +66,17 @@
     </section>
   </main>
   <?php include 'Component/jslink.php' ?>
+  <script>
+    function addFocusClass(element) {
+      element.parentElement.classList.add("focused");
+      element.parentElement.classList.add("is-focused");
+    }
+
+    function removeFocusClass(element) {
+      element.parentElement.classList.remove("focused");
+      element.parentElement.classList.remove("is-focused");
+    }
+  </script>
 </body>
 
 </html>
