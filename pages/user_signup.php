@@ -12,18 +12,50 @@ session_start();
         //if passwords don't match
         if($password != $confirm_password){
             header('location: user_signup.php?error=passwords dont match');
+
+            
         }
 
         //if password is less than 6 characters
-        if(strlen($password)<6){
+        else if(strlen($password)<6){
             header('location: user_signup.php?error=password must be at least 6 characters');
         }
+        //if there is no error
+        else{
+                //check whether there is a user with this email or not 
+            $stmt1=$conn->prepare("SELECT count(*) FROM customers where email=?");
+            $stmt1->bind_param('s',$email);
+            $stmt1->execute();
+            $stmt1->bind_result($num_rows);
+            $stmt1->store_result();
+            $stmt1->fetch();
 
-        $stmt=$conn->prepare("INSERT INTO  customers (user_name,email,phone,user_password)
-                        VALUES (?,?,?,?)");
-        
-        $stmt->bind_param('sss',$name,$email,md5($password));
+            //if there is a user with already registered email error will be displayed
+            if($num_rows !=0){
+                header('location: user_signup.php?error=user with this email already exists');
+            }
+            //if no user registered with this email before
+            else{
+                //create a new user
+                $stmt=$conn->prepare("INSERT INTO  customers (user_name,email,user_password)
+                                VALUES (?,?,?)");
+                
+                $stmt->bind_param('sss',$name,$email,md5($password));
+
+                if($stmt->execute()){
+                    $_SESSION['email']=$email;
+                    $_SESSION['user_name']=$name;
+                    $_SESSION['logged_in']=true;
+                    header('location: account.php?signup=You registered successfully');
+                }
+                else{
+                    header("location: user_signup.php?error=could not create an account at this moment");
+                }
+            }
+
+        }
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -49,14 +81,14 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="./assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../pages/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="../pages/Admin/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -82,7 +114,7 @@ session_start();
                             <h3>Sign Up</h3>
                         </div>
                         <form id="register-form" method="POST" action="user_signup.php">
-                            <p style="color: red;"><?php echo $_GET['error'];?></p>
+                            <p style="color: red;"><?php if(isset($_GET['error']))  echo $_GET['error'];?></p>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingText" name="name" placeholder="jhondoe">
                                 <label for="floatingText">Username</label>
@@ -106,7 +138,7 @@ session_start();
                                 </div>
                                 <a href="">Forgot Password</a>
                             </div>
-                            <input type="submit" class="btn btn-primary py-3 w-100 mb-4" id="signup-btn" value="Sign Up">
+                            <input type="submit" class="btn btn-primary py-3 w-100 mb-4" id="signup-btn" name="signup"  value="signup">
                             <p class="text-center mb-0">Already have an Account? <a href="">Sign In</a></p>
                         </form>
                     </div>
@@ -128,7 +160,7 @@ session_start();
     <script src="../pages/Admin/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="../pages/Admin/js/main.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
