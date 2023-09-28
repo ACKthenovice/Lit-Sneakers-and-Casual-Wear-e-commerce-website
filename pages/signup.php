@@ -29,9 +29,8 @@
                 <div class="card-body">
                   <form role="form">
                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Name</label>
-                      <!-- <input id="form-name" type="text" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Name"> -->
-                      <input id="form-name" type="text" class="form-control" placeholder="Name">
+                      <label class="form-label"></label>
+                      <input id="form-name" type="text" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Name">
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label"></label>
@@ -62,27 +61,15 @@
   </main>
   <?php include 'Component/jslink.php' ?>
   <script>
-    'use strict'
-    var formName = document.getElementById("form-name")
-
-    const addFocusClass = function (element) {
-      
+    function addFocusClass(element) {
+      element.parentElement.classList.add("focused");
+      element.parentElement.classList.add("is-focused");
     }
 
-    formName.addEventListener("focus", function () {
-      console.log("Focus")
-
-      formName.parentElement.classList.add("focused");
-      formName.parentElement.classList.add("is-focused");
-    })
-    formName.addEventListener('blur', function () {
-      console.log("Blur", formName)
-
-      formName.parentElement.classList.remove("focused");
-      formName.parentElement.classList.remove("is-focused");
-    })
-
-    
+    function removeFocusClass(element) {
+      element.parentElement.classList.remove("focused");
+      element.parentElement.classList.remove("is-focused");
+    }
   </script>
 </body>
 
