@@ -29,8 +29,9 @@
                 <div class="card-body">
                   <form role="form">
                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label"></label>
-                      <input type="text" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Name">
+                      <label class="form-label">Name</label>
+                      <!-- <input id="form-name" type="text" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Name"> -->
+                      <input id="form-name" type="text" class="form-control" placeholder="Name">
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label"></label>
@@ -39,12 +40,6 @@
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label"></label>
                       <input type="password" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Password">
-                    </div>
-                    <div class="form-check form-check-info text-start ps-0">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                      <label class="form-check-label" for="flexCheckDefault">
-                        I agree to the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
-                      </label>
                     </div>
                     <div class="text-center">
                       <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
@@ -67,15 +62,27 @@
   </main>
   <?php include 'Component/jslink.php' ?>
   <script>
-    function addFocusClass(element) {
-      element.parentElement.classList.add("focused");
-      element.parentElement.classList.add("is-focused");
+    'use strict'
+    var formName = document.getElementById("form-name")
+
+    const addFocusClass = function (element) {
+      
     }
 
-    function removeFocusClass(element) {
-      element.parentElement.classList.remove("focused");
-      element.parentElement.classList.remove("is-focused");
-    }
+    formName.addEventListener("focus", function () {
+      console.log("Focus")
+
+      formName.parentElement.classList.add("focused");
+      formName.parentElement.classList.add("is-focused");
+    })
+    formName.addEventListener('blur', function () {
+      console.log("Blur", formName)
+
+      formName.parentElement.classList.remove("focused");
+      formName.parentElement.classList.remove("is-focused");
+    })
+
+    
   </script>
 </body>
 
