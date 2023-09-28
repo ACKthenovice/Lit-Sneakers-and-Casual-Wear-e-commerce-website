@@ -42,7 +42,7 @@ if(isset($_POST['signin_btn'])){
 </head>
 <body>
     <form id="login_form" action="user_signin.php" method="POST" class="text-start">
-    <p style="color: red; margin: 0;"><?php if(isset($_GET['error'])) {echo $_GET['error'];} ?></p>
+        <p style="color: red; margin: 0;"><?php if(isset($_GET['error'])) {echo $_GET['error'];} ?></p>
         <div class="input-group input-group-outline my-3">
         
             <label class="form-label">Email</label>
