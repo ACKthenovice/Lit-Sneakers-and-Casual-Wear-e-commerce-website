@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2023 at 04:07 PM
+-- Generation Time: Sep 26, 2023 at 05:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -45,12 +45,14 @@ CREATE TABLE `customers` (
 
 CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `user_name` varchar(20) NOT NULL,
+  `phone` int(11) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
   `customer_id` int(11) DEFAULT NULL,
-  `address` varchar(100) DEFAULT NULL,
   `billing_address` varchar(100) DEFAULT NULL,
   `order_date` date DEFAULT NULL,
-  `status` varchar(50) DEFAULT NULL,
-  `total_amount` int(32) DEFAULT NULL
+  `order_status` varchar(50) DEFAULT NULL,
+  `total_amount` decimal(65,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -60,10 +62,15 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `order_items` (
+  `item_id` int(11) NOT NULL,
   `order_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
+  `product_name` varchar(100) NOT NULL,
+  `product_image` varchar(255) NOT NULL,
+  `customer_id` int(11) NOT NULL,
   `quantity` int(11) DEFAULT NULL,
-  `unit_price` decimal(6,2) DEFAULT NULL
+  `unit_price` decimal(6,2) DEFAULT NULL,
+  `order_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -118,6 +125,12 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`item_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -138,6 +151,12 @@ ALTER TABLE `customers`
 --
 ALTER TABLE `orders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `order_items`
+--
+ALTER TABLE `order_items`
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
