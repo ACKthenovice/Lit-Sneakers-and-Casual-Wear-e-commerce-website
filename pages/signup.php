@@ -1,3 +1,65 @@
+<?php
+include '../server/connection.php';
+session_start();
+
+    if(isset($_POST['signup'])){
+
+        $name =$_POST['name'];
+        $email=$_POST['email'];
+        $password=$_POST['password'];
+        $confirm_password=$_POST['confirm_password'];
+
+        //if passwords don't match
+        if($password != $confirm_password){
+            header('location: user_signup.php?error=passwords dont match');
+
+            
+        }
+
+        //if password is less than 6 characters
+        else if(strlen($password)<6){
+            header('location: user_signup.php?error=password must be at least 6 characters');
+        }
+        //if there is no error
+        else{
+                //check whether there is a user with this email or not 
+            $stmt1=$conn->prepare("SELECT count(*) FROM customers where email=?");
+            $stmt1->bind_param('s',$email);
+            $stmt1->execute();
+            $stmt1->bind_result($num_rows);
+            $stmt1->store_result();
+            $stmt1->fetch();
+
+            //if there is a user with already registered email error will be displayed
+            if($num_rows !=0){
+                header('location: user_signup.php?error=user with this email already exists');
+            }
+            //if no user registered with this email before
+            else{
+                //create a new user
+                $stmt=$conn->prepare("INSERT INTO  customers (user_name,email,user_password)
+                                VALUES (?,?,?)");
+                
+                $stmt->bind_param('sss',$name,$email,md5($password));
+
+                if($stmt->execute()){
+                    $_SESSION['email']=$email;
+                    $_SESSION['user_name']=$name;
+                    $_SESSION['logged_in']=true;
+                    header('location: account.php?signup=You registered successfully');
+                }
+                else{
+                    header("location: user_signup.php?error=could not create an account at this moment");
+                }
+            }
+
+        }
+    }//if user has already registered, then take user to account page.
+    /*else if(isset($_SESSION['logged_in'])){
+        header('location: account.php');
+        exit;
+    }*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,22 +89,27 @@
                   <p class="mb-0">Enter your email and password to register</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
-                    <div class="input-group input-group-outline mb-3">
-                      <label class="form-label"></label>
-                      <input id="form-name" type="text" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Name">
-                    </div>
-                    <div class="input-group input-group-outline mb-3">
-                      <label class="form-label"></label>
-                      <input type="email" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Email">
-                    </div>
-                    <div class="input-group input-group-outline mb-3">
-                      <label class="form-label"></label>
-                      <input type="password" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Password">
-                    </div>
-                    <div class="text-center">
-                      <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
-                    </div>
+                  <form role="form" method="POST" action="signup.php">
+                    <p style="color: red;"><?php if(isset($_GET['error']))  echo $_GET['error'];?></p>
+                      <div class="input-group input-group-outline mb-3">
+                        <label class="form-label"></label>
+                        <input id="form-name" type="text" name="name"   class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" placeholder="Name">
+                      </div>
+                      <div class="input-group input-group-outline mb-3">
+                        <label class="form-label"></label>
+                        <input type="email" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" name="email" placeholder="Email">
+                      </div>
+                      <div class="input-group input-group-outline mb-3">
+                        <label class="form-label"></label>
+                        <input type="password" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" name="password" placeholder="Password">
+                      </div>
+                      <div class="input-group input-group-outline mb-3">
+                        <label class="form-label"></label>
+                        <input type="password" class="form-control" onfocus="addFocusClass(this)" onblur="removeFocusClass(this)" name="confirm_password" placeholder="Confirm Password">
+                      </div>
+                      <div class="text-center">
+                        <input type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" name="signup" value="signup">
+                      </div>
                   </form>
 
                 </div>
