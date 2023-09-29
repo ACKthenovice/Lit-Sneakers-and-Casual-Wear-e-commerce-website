@@ -1,10 +1,8 @@
 <?php
-
-
 include '../../../server/connection.php';
-$stmt =$conn->prepare("SELECT * FROM orders");//stmt=variable statement
+$stmt =$conn->prepare("SELECT * FROM products");//stmt=variable statement
 $stmt->execute();
-$orders =$stmt->get_result();//arrary for looping
+$products =$stmt->get_result();//arrary for looping
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,59 +51,43 @@ $orders =$stmt->get_result();//arrary for looping
                 <table class="table align-items-center justify-content-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Order ID</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Username</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Customer ID</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Phone</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Email</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Address</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Order Date</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Order Status</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Total Amount</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Product ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Product Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Brand Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Description</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Price</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Product Image</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Grade</th>
                       <th class="text-secondary opacity-7"></th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($orders as $order){?>
+                    <?php foreach($products as $product){?>
                     <tr>
                       <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $order['id'];?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?php echo $product['id'];?></p>
                       </td>
                       <td class="align-middle text-center">
-                        <p class="text-xs text-secondary mb-0 font-weight-bold"><?php echo $order['user_name'];?></p>
+                        <p class="text-xs text-secondary mb-0 font-weight-bold"><?php echo $product['name'];?></p>
                       </td>
                       <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $order['customer_id'];?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?php echo $product['brandname'];?></p>
                       </td>
                       <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $order['phone'];?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?php echo $product['description'];?></p>
                       </td>
                       <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $order['email'];?></p>
-                        <!--<div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">60%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                            </div>
-                          </div>
-                        </div>-->
+                        <p class="text-xs font-weight-bold mb-0"><?php echo $product['price'];?></p>
                       </td>
                       <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $order['billing_address'];?></p>
+                        <img src="../../<?php echo $product['img_url'];?>" width="100px" height="auto"  alt="">
                       </td>
                       <td class="align-middle text-center">
-                        <p class="text-secondary text-xs font-weight-bold mb-0"><?php echo $order['order_date'];?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?php echo $product['grade'];?></p>
                       </td>
                       <td class="align-middle text-center">
-                        <p class="text-secondary text-xs font-weight-bold mb-0"><?php echo $order['order_status'];?></p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-secondary text-xs font-weight-bold mb-0"><?php echo $order['total_amount'];?></p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                        <a href="product_admin.php?id=<?php echo $product['id'];?>" class="text-secondary font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#editModal">
                           Edit
                         </a>
                       </td>
@@ -116,6 +98,31 @@ $orders =$stmt->get_result();//arrary for looping
                       </td>
                     </tr>
                   <?php } ?>
+                  <!--editModal-->
+                  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel">Edit Product</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form method="POST" action="">
+                              <label>Title:</label>
+                              <input type="text" name="title" required><br>
+                              <label>Author:</label>
+                              <input type="text" name="author" required><br>
+                              <label>Price:</label>
+                              <input type="text" name="price" required><br>
+
+                              <button type="submit" class="btn btn-primary">Create Book</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                   </div>
                   </tbody>
                 </table>
               </div>
