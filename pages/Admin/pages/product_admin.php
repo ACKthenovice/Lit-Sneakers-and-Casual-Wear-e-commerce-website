@@ -3,6 +3,8 @@ include '../../../server/connection.php';
 $stmt =$conn->prepare("SELECT * FROM products");//stmt=variable statement
 $stmt->execute();
 $products =$stmt->get_result();//arrary for looping
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +31,8 @@ $products =$stmt->get_result();//arrary for looping
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -46,7 +50,15 @@ $products =$stmt->get_result();//arrary for looping
                 <h6 class="text-white text-capitalize ps-3">Orders List</h6>
               </div>
             </div>
+            <?php if(isset($_GET['success_message'])){?>
+              <p class="text center" style="color: green;"><?php echo $_GET['success_message'];?></p>
+            <?php } ?>
+
+            <?php if(isset($_GET['failure_message'])){?>
+              <p class="text center" style="color: green;"><?php echo $_GET['failure_message'];?></p>
+            <?php } ?>
             <div class="card-body pr-4 pl-0 pb-4">
+              
               <div class="table-responsive p-0">
                 <table class="table align-items-center justify-content-center mb-0">
                   <thead>
@@ -63,69 +75,75 @@ $products =$stmt->get_result();//arrary for looping
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($products as $product){?>
-                    <tr>
-                      <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $product['id'];?></p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-xs text-secondary mb-0 font-weight-bold"><?php echo $product['name'];?></p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $product['brandname'];?></p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $product['description'];?></p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $product['price'];?></p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <img src="../../<?php echo $product['img_url'];?>" width="100px" height="auto"  alt="">
-                      </td>
-                      <td class="align-middle text-center">
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $product['grade'];?></p>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="product_admin.php?id=<?php echo $product['id'];?>" class="text-secondary font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#editModal">
-                          Edit
-                        </a>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Delete
-                        </a>
-                      </td>
-                    </tr>
-                  <?php } ?>
-                  <!--editModal-->
-                  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="myModalLabel">Edit Product</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <form method="POST" action="">
-                              <label>Title:</label>
-                              <input type="text" name="title" required><br>
-                              <label>Author:</label>
-                              <input type="text" name="author" required><br>
-                              <label>Price:</label>
-                              <input type="text" name="price" required><br>
+                    <?php while ($row = $products->fetch_assoc()) { ?>
+                      <tr>
+                        <td class="align-middle text-center">
+                          <p class="text-xs font-weight-bold mb-0"><?php echo $row['id'];?></p>
+                        </td>
+                        <td class="align-middle text-center">
+                          <p class="text-xs text-secondary mb-0 font-weight-bold"><?php echo $row['name'];?></p>
+                        </td>
+                        <td class="align-middle text-center">
+                          <p class="text-xs font-weight-bold mb-0"><?php echo $row['brandname'];?></p>
+                        </td>
+                        <td class="align-middle text-center">
+                          <p class="text-xs font-weight-bold mb-0"><?php echo $row['description'];?></p>
+                        </td>
+                        <td class="align-middle text-center">
+                          <p class="text-xs font-weight-bold mb-0"><?php echo $row['price'];?></p>
+                        </td>
+                        <td class="align-middle text-center">
+                          <img src="../../<?php echo $row['img_url'];?>" width="100px" height="auto"  alt="">
+                        </td>
+                        <td class="align-middle text-center">
+                          <p class="text-xs font-weight-bold mb-0"><?php echo $row['grade'];?></p>
+                        </td>
+                        <td class="align-middle text-center">
+                          <button type="button" class="text-secondary font-weight-bold text-xs editBtn" data-id="<?php echo $row['id'];?>">Edit</button>
+                        </td>
+                        <td class="align-middle text-center">
+                          <a href="" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            Delete
+                          </a>
+                        </td>
+                      </tr>
+                    <?php } ?>
 
-                              <button type="submit" class="btn btn-primary">Create Book</button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                   </div>
+                    
+                        
                   </tbody>
                 </table>
-              </div>
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="myModalLabel">Edit Product</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <form method="POST" action="">
+                                    <input type="text" name="id" id="update_id" required><br>
+                                    <label>Name</label>
+                                    <input type="text" name="name" id="fname" required><br>
+                                    <label>Brandname:</label>
+                                    <input type="text"  name="brandname" id="update_brandname" required><br>
+                                    <label>Description:</label>
+                                    <input type="text"  name="description" id="update_desc" required><br>
+                                    <label>Price:</label>
+                                    <input type="text"  name="price" id="update_price" required><br>
+                                    <!--<label>Image:</label>
+                                    <input type="text" value="<?php //echo $product['name'];?>" name="price" required><br>-->
+                                    <label>Grade:</label>
+                                    <input type="text"  name="grade" id="update_grade" required><br>
+                                    <button type="submit" class="btn btn-primary">Create Book</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                </div>
             </div>
           </div>
         </div>
@@ -148,11 +166,32 @@ $products =$stmt->get_result();//arrary for looping
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
+
+    
+  </script>
+  <script>
+    $(document).ready(function(){
+      $('.editBtn').on('click',function(){
+        $('#editModal').modal('show');
+            var user_id=$(this).data("id");
+            $.ajax({
+                        url: 'edit_product.php',
+                        type: 'post',
+                        data: {user_id: user_id},
+                        success: function(response){ 
+                            $('.modal-body').html(response); 
+                            $('#editModal').modal('show'); 
+                        }
+                    });
+
+      });
+    });
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>
 
 </html>
