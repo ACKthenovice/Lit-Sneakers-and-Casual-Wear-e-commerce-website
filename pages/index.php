@@ -23,7 +23,7 @@
                         <h1 class="hero-title mt-4"><span>Best Prices</span> for this season.</h1>
                         <p class="hero-description">Eshop offers the best products at the most affordable prices. Explore
                             our collection today.</p>
-                        <button class="hero-button"><a class="btn" href="../pages/product.php">Explore More</a></button>
+                        <button class="btn btn-primary"><a style="color: white;" href="../pages/product.php">Explore More</a></button>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <img src="../images/shoe-banner.png" class="img-fluid" alt="Banner Image">
@@ -330,7 +330,7 @@
                         <div class="product-info">
                             <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
                             <span class="product-price">$110</span>
-                            <i class="fas fa-shopping-bag fa-xl"></i>
+                            <a href="../pages/product.php"><i class="fas fa-shopping-basg fa-xl"></i></a></i>
                         </div>
                     </div>
 
@@ -343,7 +343,7 @@
                         <div class="product-info">
                             <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
                             <span class="product-price">$110</span>
-                            <i class="fas fa-shopping-bag fa-xl"></i>
+                            <a href="../pages/product.php"><i class="fas fa-shopping-bag fa-xl"></i></a></i>
                         </div>
                     </div>
 
@@ -356,7 +356,7 @@
                         <div class="product-info">
                             <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
                             <span class="product-price">$110</span>
-                            <i class="fas fa-shopping-bag fa-xl"></i>
+                            <a href="../pages/product.php"><i class="fas fa-shopping-bag fa-xl"></i></a></i>
                         </div>
                     </div>
 
@@ -369,7 +369,7 @@
                         <div class="product-info">
                             <h4 class="product-name">Adidas <span class="product-model">Campus</span></h4>
                             <span class="product-price">$110</span>
-                            <i class="fas fa-shopping-bag fa-xl"></i>
+                            <a href="../pages/product.php"><i class="fas fa-shopping-bag fa-xl"></i></a></i>
                         </div>
                     </div>
 
