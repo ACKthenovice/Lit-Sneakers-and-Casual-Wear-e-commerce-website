@@ -54,13 +54,15 @@ $customers=$stmt->get_result();//arrary for looping
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Customer ID</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User Name</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User_password</th>
+                      <th class="text-secondary opacity-7"></th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
+                  <?php foreach($customers  as $customer) { ?>
                     <tr>
-                      <?php foreach($customers  as $customer) { ?>
                           <td class="align-middle text-center">
                             <p class="text-xs font-weight-bold mb-0"><?php echo $customer['customer_id'];?></p>
                           </td>
@@ -85,8 +87,8 @@ $customers=$stmt->get_result();//arrary for looping
                               Delete
                             </a>
                           </td>
-                      <?php } ?>
                     </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
