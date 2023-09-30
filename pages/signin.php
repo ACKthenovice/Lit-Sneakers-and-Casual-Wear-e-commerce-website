@@ -6,36 +6,33 @@ include '../server/connection.php';
   exit;
 }*/
 session_start();
-if(isset($_POST['signin_btn'])){
+if (isset($_POST['signin_btn'])) {
 
-    $email=$_POST['email'];
-    $password=md5($_POST['password']);
+  $email = $_POST['email'];
+  $password = md5($_POST['password']);
 
-    $stmt=$conn->prepare("SELECT customer_id,user_name,email,user_password FROM customers where email=? AND user_password=? LIMIT 1 ");
+  $stmt = $conn->prepare("SELECT customer_id,user_name,email,user_password FROM customers where email=? AND user_password=? LIMIT 1 ");
 
-    $stmt->bind_param('ss',$email,$password);
+  $stmt->bind_param('ss', $email, $password);
 
-    if($stmt->execute()){
-        $stmt->bind_result($user_id,$username,$email,$password);
-        $stmt->store_result();
+  if ($stmt->execute()) {
+    $stmt->bind_result($user_id, $username, $email, $password);
+    $stmt->store_result();
 
-        if($stmt->num_rows()==1){
-            $stmt->fetch();
-            $_SESSION['customer_id']=$user_id;
-            $_SESSION['name']=$username;
-            $_SESSION['email']=$email;
-            $_SESSION['logged_in']=true;
+    if ($stmt->num_rows() == 1) {
+      $stmt->fetch();
+      $_SESSION['customer_id'] = $user_id;
+      $_SESSION['name'] = $username;
+      $_SESSION['email'] = $email;
+      $_SESSION['logged_in'] = true;
 
-            header('location: account.php?message=logged in successfully');
-        }
-        else{
-            header('location: signin.php?message=could not verify your account');
-        }
+      header('location: account.php?message=logged in successfully');
+    } else {
+      header('location: signin.php?message=could not verify your account');
     }
-    else{
-        header('location: signin.php?error=something went wrong');
-    }
-
+  } else {
+    header('location: signin.php?error=something went wrong');
+  }
 }
 ?>
 
@@ -82,63 +79,33 @@ if(isset($_POST['signin_btn'])){
               </div>
               <div class="card-body">
                 <form role="form" method="POST" action="signin.php" class="text-start">
-                    <p style="color: red;"><?php if(isset($_GET['error'])) {echo $_GET['error'];} ?></p>
-                    <div class="input-group input-group-outline my-3">
-                      <input type="email" name="email"  class="form-control" placeholder="E-mail">
-                    </div>
-                    <div class="input-group input-group-outline mb-3">
-                      <input type="password" name="password" class="form-control" placeholder="Password">
-                    </div>
-                    <div class="form-check form-switch d-flex align-items-center mb-3">
-                      <input class="form-check-input" type="checkbox" id="rememberMe" checked>
-                      <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
-                    </div>
-                    <div class="text-center">
-                      <button type="submit" name="signin_btn" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
-                    </div>
-                    <p class="mt-4 text-sm text-center">
-                      Don't have an account?
-                      <a href="../pages/signup.php" class="text-primary text-gradient font-weight-bold">Sign up</a>
-                    </p>
+                  <p style="color: red;"><?php if (isset($_GET['error'])) {
+                                            echo $_GET['error'];
+                                          } ?></p>
+                  <div class="input-group input-group-outline my-3">
+                    <input type="email" name="email" class="form-control" placeholder="E-mail">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <input type="password" name="password" class="form-control" placeholder="Password">
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" name="signin_btn" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
+                  </div>
+                  <p class="mt-4 text-sm text-center">
+                    Don't have an account?
+                    <a href="../pages/signup.php" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                  </p>
                 </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer position-absolute bottom-2 py-2 w-100">
-        <div class="container">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-12 col-md-6 my-auto">
-              <div class="copyright text-center text-sm text-white text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold text-white" target="_blank">Creative Tim</a>
-                for a better web.
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-white" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-white" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-white" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-white" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
+
     </div>
+    <?php
+    include 'component/footer.php';
+    ?>
   </main>
   <!--   Core JS Files   -->
   <?php include 'Component/jslink.php' ?>
