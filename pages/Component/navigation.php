@@ -1,10 +1,6 @@
 <head>
     <title>Navigation</title>
     <?php include 'header.php';
-    /*if(isset($_SESSION['logged_in'])){
-        header('location: account.php');
-        exit;
-      }*/
     ?>
 </head>
 
@@ -43,14 +39,28 @@
                             Contact Us
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-2" href="signin.php">
-                            <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                            Sign In
-                        </a>
-                    </li>
+                    <?php
+                    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+                        // User is logged in, hide the sign-in button
+                        echo '<li class="nav-item">';
+                        echo '<a class="nav-link me-2" href="logout.php">';
+                        echo '<i class="fa fa-sign-out opacity-6 text-dark me-1"></i>';
+                        echo 'Logout';
+                        echo '</a>';
+                        echo '</li>';
+                    } else {
+                        // User is not logged in, show the sign-in button
+                        echo '<li class="nav-item">';
+                        echo '<a class="nav-link me-2" href="signin.php">';
+                        echo '<i class="fa fa-user opacity-6 text-dark me-1"></i>';
+                        echo 'Sign In';
+                        echo '</a>';
+                        echo '</li>';
+                    }
+                    ?>
                 </ul>
             </div>
+
         </div>
     </nav>
 </body>

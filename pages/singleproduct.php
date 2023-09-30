@@ -57,11 +57,12 @@ if (isset($_GET['id'])) {
                             <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
                             <input type="hidden" name="product_image" value="<?php echo $row['img_url']; ?>">
                             <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
+                            <input type="hidden" name="product_price" value="<?php echo $row['price']; ?>">
                             <div class="row product-details mb-3 p-3">
                                 <h3><?php echo $row['name']; ?></h3>
                                 <label for="product_price" class="col-2 col-form-label my-2">Price: </label>
                                 <div class="col-9 my-2">
-                                    <input class="form-control bg-transparent w-auto" id="product_price" type="text" name="product_price" value="$ 22<?php echo $row['price']; ?>" disabled readonly>
+                                    <h6><?php echo $row['price']; ?></h6>
                                 </div>
                                 <label for="product_quantity" class="col-2 col-form-label my-2">Quantity: </label>
                                 <div class="col-9 quantity-selector my-2">
@@ -73,7 +74,7 @@ if (isset($_GET['id'])) {
                                 </div>
                                 <button class="btn btn-primary w-auto mt-3 mx-3" name="add_to_cart" type="submit">Add to Cart</button>
                                 <h6 class="mx-1">Product Details</h6>
-                                <p class="mx-1">When the "Add to Cart" button is clicked, we retrieve the selected quantity from the input field and trigger the logic to add the product to the cart. In this example, an alert is shown with the selected quantity.<?php echo $row['description']; ?></p>
+                                <p class="mx-1">When the "Add to Cart" button is clicked, we retrieve the selected quantity from the input field and trigger the logic to add the product to the cart. In this example, an alert is shown with the selected quantity.</p>
                             </div>
                         </form>
                     </div>

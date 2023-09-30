@@ -135,7 +135,7 @@ function calculateTotalCart()
                                     </td>
                                     <td>
                                         <form method="POST" action="cart.php">
-                                            <input class="form-control bg-light text-center" style="height: auto" type="number" id="quantity" name="product_quantity" min="1" value="1">
+                                            <input class="form-control bg-light text-center" style="height: auto" type="number" id="quantity" name="quantity" min="1" value="<?php echo $value['product_quantity']; ?>">
                                         </form>
                                     </td>
                                     <td>
@@ -143,10 +143,10 @@ function calculateTotalCart()
                                     </td>
                                     <td>
                                         <form class="d-flex" method="POST" action="cart.php">
+                                            <input type="hidden" name="product_id" value="<?php echo $value['product_id']; ?>">
+                                            <input class="input" name="product_quantity" type="hidden" value="<?php echo $value['product_quantity']; ?>" />
                                             <button type="submit" class="btn" name="edit_quantity"><i class="fa-solid fa-pen-to-square"></i></button>
                                             <button type="submit" name="remove_product" class="btn btn-primary"><i class="fa-solid fa-trash"></i></button>
-                                            <input type="hidden" name="product_id" value="<?php echo $value['product_id']; ?>">
-                                            <input type="hidden" class="input" name="product_quantity" value="<?php echo $value['product_quantity']; ?>" />
                                         </form>
                                     </td>
                                 </tr>

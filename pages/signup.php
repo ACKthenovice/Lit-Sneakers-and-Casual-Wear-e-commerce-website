@@ -51,10 +51,10 @@ session_start();
                     $_SESSION['email']=$email;
                     $_SESSION['user_name']=$name;
                     $_SESSION['logged_in']=true;
-                    header('location: account.php?signup=You registered successfully');
+                    header('location: index.php?signup=You registered successfully');
                 }
                 else{
-                    header("location: user_signup.php?error=could not create an account at this moment");
+                    header("location: signup.php?error=could not create an account at this moment");
                 }
             }
 

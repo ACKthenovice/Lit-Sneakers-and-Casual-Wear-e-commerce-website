@@ -26,7 +26,7 @@ if (isset($_POST['signin_btn'])) {
       $_SESSION['email'] = $email;
       $_SESSION['logged_in'] = true;
 
-      header('location: account.php?message=logged in successfully');
+      header('location: index.php');
     } else {
       header('location: signin.php?message=could not verify your account');
     }
