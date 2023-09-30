@@ -593,12 +593,14 @@ h6 {
 /*single-product-page*/
 .small-img-group {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
 .small-img-col {
     flex-basis: 25%;
     cursor: pointer;
+    padding: 10px;
 }
 
 .small-img {

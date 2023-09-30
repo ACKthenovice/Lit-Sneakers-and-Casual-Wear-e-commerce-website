@@ -25,116 +25,61 @@ if (isset($_GET['id'])) {
     <?php include 'Component/navigation.php' ?>
 
     <!--singleproduct-->
-    <section class="container singleproduct my-5 pt-5">
+    <section class="container singleproduct mb-10">
         <div class="row mt-5">
-
             <?php while ($row = $product->fetch_assoc()) { ?>
 
-                <div class="col-lg-5 col-md-6 col-sm-12">
-                    <img id="mainImg" class="img-fluid w-100 pb-1" src="<?php echo $row['img_url']; ?>" alt="">
-                    <div class="container small-img-group mt-3">
-                        <div class="small-img-col">
-                            <img src="../images/web images/Product images/addidas.jpg" class="small-img" width="80%">
-                        </div>
-                        <div class="small-img-col">
-                            <img src="../images/web images/Product images/small_images/campus_small_img_1.webp" class="small-img" width="80%">
-                        </div>
-                        <div class="small-img-col">
-                            <img src="../images/web images/Product images/small_images/campus_small_img_2.webp" class="small-img" width="80%">
-                        </div>
-                        <div class="small-img-col">
-                            <img src="../images/web images/Product images/small_images/campus_small_img_3.webp" class="small-img" width="80%">
+                <div class="col px-7 col-lg-6 col-md-12 col-sm-12">
+
+                    <div class="column">
+                        <img id="mainImg" class="img-fluid pb-1" src="<?php echo $row['img_url']; ?>" alt="">
+                        <div class="small-img-group mt-3">
+                            <div class="small-img-col">
+                                <img src="../images/web images/Product images/addidas.jpg" class="small-img" width="100%">
+                            </div>
+                            <div class="small-img-col">
+                                <img src="../images/web images/Product images/small_images/campus_small_img_1.webp" class="small-img" width="100%">
+                            </div>
+                            <div class="small-img-col">
+                                <img src="../images/web images/Product images/small_images/campus_small_img_2.webp" class="small-img" width="100%">
+                            </div>
+                            <div class="small-img-col">
+                                <img src="../images/web images/Product images/small_images/campus_small_img_3.webp" class="small-img" width="100%">
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="col col-lg-6 col-md-12 col-sm-12">
+                    <div class="column">
 
-
-                <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h6>Men/Shoes</h6>
-                    <h3 class="pb-4"><?php echo $row['name']; ?></h3>
-                    <h2>$<?php echo $row['price']; ?></h2>
-
-
-                    <form method="POST" action="cart.php">
-                        <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
-                        <input type="hidden" name="product_image" value="<?php echo $row['img_url']; ?>">
-                        <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
-                        <input type="hidden" name="product_price" value="<?php echo $row['price']; ?>">
-                        <input type="number" name="product_quantity" value="1">
-                        <button class="buy-btn" name="add_to_cart" type="submit">Add to Cart</button>
-                    </form>
-
-                    <h4 class="mt-5 mb-5">Product Details</h4>
-                    <span><?php echo $row['description']; ?>
-                    </span>
+                        <form method="POST" action="cart.php">
+                            <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
+                            <input type="hidden" name="product_image" value="<?php echo $row['img_url']; ?>">
+                            <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
+                            <div class="row product-details mb-3 p-3">
+                                <h3><?php echo $row['name']; ?></h3>
+                                <label for="product_price" class="col-2 col-form-label my-2">Price: </label>
+                                <div class="col-9 my-2">
+                                    <input class="form-control bg-transparent w-auto" id="product_price" type="text" name="product_price" value="$ 22<?php echo $row['price']; ?>" disabled readonly>
+                                </div>
+                                <label for="product_price" class="col-2 col-form-label my-2">Quantity: </label>
+                                <div class="col-9 quantity-selector my-2">
+                                    <input class="form-control bg-light" style="height: auto" type="number" id="quantity" name="product_quantity" min="1" value="1">
+                                </div>
+                                <label for="size" class="col-2 col-form-label my-2">Size: </label>
+                                <div class="col-9 my-2">
+                                    <input type="number" class="form-control bg-light my-2" value="12" id="size">
+                                </div>
+                                <button class="btn btn-primary w-auto mt-3 mx-3" name="add_to_cart" type="submit">Add to Cart</button>
+                                <h6 class="mx-1">Product Details</h6>
+                                <p class="mx-1">When the "Add to Cart" button is clicked, we retrieve the selected quantity from the input field and trigger the logic to add the product to the cart. In this example, an alert is shown with the selected quantity.<?php echo $row['description']; ?></p>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-
             <?php } ?>
         </div>
-    </section>
-
-    <!--Relatedproduct-->
-    <section id="related-products" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>related-products</h3>
-            <hr class="mx-auto">
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="../images/web images/Product images/air-force-white-black.jpg" />
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="../images/web images/Product images/air_force.png " />
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="../images/web images/Product images/air_force_one-transformed.png" />
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="../images/web images/Product images/nike_airmax-removebg-preview (1).png" />
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h5 class="p-name">Sports Shoes</h5>
-                <h4 class="p-price">200 USD</h4>
-                <button class="buy-btn">Buy Now</button>
-            </div>
-        </div>
-
     </section>
 
     <!--footer-->
