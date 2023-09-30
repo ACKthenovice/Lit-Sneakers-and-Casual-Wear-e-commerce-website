@@ -63,7 +63,7 @@ if (isset($_GET['id'])) {
                                 <div class="col-9 my-2">
                                     <input class="form-control bg-transparent w-auto" id="product_price" type="text" name="product_price" value="$ 22<?php echo $row['price']; ?>" disabled readonly>
                                 </div>
-                                <label for="product_price" class="col-2 col-form-label my-2">Quantity: </label>
+                                <label for="product_quantity" class="col-2 col-form-label my-2">Quantity: </label>
                                 <div class="col-9 quantity-selector my-2">
                                     <input class="form-control bg-light" style="height: auto" type="number" id="quantity" name="product_quantity" min="1" value="1">
                                 </div>
@@ -81,7 +81,6 @@ if (isset($_GET['id'])) {
             <?php } ?>
         </div>
     </section>
-
     <!--footer-->
     <?php
     include 'component/footer.php';
