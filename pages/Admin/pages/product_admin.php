@@ -1,5 +1,6 @@
 <?php
 include '../../../server/connection.php';
+include 'create.php';
 $stmt =$conn->prepare("SELECT * FROM products");//stmt=variable statement
 $stmt->execute();
 $products =$stmt->get_result();//arrary for looping
@@ -50,15 +51,17 @@ $products =$stmt->get_result();//arrary for looping
                 <h6 class="text-white text-capitalize ps-3">Orders List</h6>
               </div>
             </div>
-            <?php if(isset($_GET['success_message'])){?>
-              <p class="text center" style="color: green;"><?php echo $_GET['success_message'];?></p>
-            <?php } ?>
-
-            <?php if(isset($_GET['failure_message'])){?>
-              <p class="text center" style="color: green;"><?php echo $_GET['failure_message'];?></p>
-            <?php } ?>
             <div class="card-body pr-4 pl-0 pb-4">
-              
+              <?php if(isset($_GET['success_message'])){?>
+                 <p style="color: green"><?php echo $_GET['success_message']?></p>
+              <?php } ?>
+              <?php if(isset($_GET['failure_message'])){?>
+                 <p style="color: red"><?php echo $_GET['failure_message']?></p>
+              <?php } ?>
+
+              <?php if(isset($_GET['delete_message'])){?>
+                 <p style="color: green"><?php echo $_GET['delete_message']?></p>
+              <?php } ?>
               <div class="table-responsive p-0">
                 <table class="table align-items-center justify-content-center mb-0">
                   <thead>
@@ -75,75 +78,108 @@ $products =$stmt->get_result();//arrary for looping
                     </tr>
                   </thead>
                   <tbody>
-                    <?php while ($row = $products->fetch_assoc()) { ?>
+                    <?php foreach($products  as $product) { ?>
                       <tr>
                         <td class="align-middle text-center">
-                          <p class="text-xs font-weight-bold mb-0"><?php echo $row['id'];?></p>
+                          <p class="text-xs font-weight-bold mb-0"><?php echo $product['id'];?></p>
                         </td>
                         <td class="align-middle text-center">
-                          <p class="text-xs text-secondary mb-0 font-weight-bold"><?php echo $row['name'];?></p>
+                          <p class="text-xs text-secondary mb-0 font-weight-bold"><?php echo $product['name'];?></p>
                         </td>
                         <td class="align-middle text-center">
-                          <p class="text-xs font-weight-bold mb-0"><?php echo $row['brandname'];?></p>
+                          <p class="text-xs font-weight-bold mb-0"><?php echo $product['brandname'];?></p>
                         </td>
                         <td class="align-middle text-center">
-                          <p class="text-xs font-weight-bold mb-0"><?php echo $row['description'];?></p>
+                          <p class="text-xs font-weight-bold mb-0"><?php echo $product['price'];?></p>
                         </td>
                         <td class="align-middle text-center">
-                          <p class="text-xs font-weight-bold mb-0"><?php echo $row['price'];?></p>
+                          <img src="../../<?php echo $product['img_url'];?>" width="100px" height="auto"  alt="">
                         </td>
                         <td class="align-middle text-center">
-                          <img src="../../<?php echo $row['img_url'];?>" width="100px" height="auto"  alt="">
+                          <p class="text-xs font-weight-bold mb-0"><?php echo $product['grade'];?></p>
                         </td>
                         <td class="align-middle text-center">
-                          <p class="text-xs font-weight-bold mb-0"><?php echo $row['grade'];?></p>
+                        <a href="<?php echo "edit_product.php?id=".$product['id'];?>" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            Edit
                         </td>
                         <td class="align-middle text-center">
-                          <button type="button" class="text-secondary font-weight-bold text-xs editBtn" data-id="<?php echo $row['id'];?>">Edit</button>
-                        </td>
-                        <td class="align-middle text-center">
-                          <a href="" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                          <a href="<?php echo "delete.php?id=".$product['id'];?>" style="text-decoration:none;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete product">
                             Delete
                           </a>
                         </td>
                       </tr>
                     <?php } ?>
-
-                    
-                        
                   </tbody>
                 </table>
-                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="myModalLabel">Edit Product</h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div class="modal-body">
-                                  <form method="POST" action="">
-                                    <input type="text" name="id" id="update_id" required><br>
-                                    <label>Name</label>
-                                    <input type="text" name="name" id="fname" required><br>
-                                    <label>Brandname:</label>
-                                    <input type="text"  name="brandname" id="update_brandname" required><br>
-                                    <label>Description:</label>
-                                    <input type="text"  name="description" id="update_desc" required><br>
-                                    <label>Price:</label>
-                                    <input type="text"  name="price" id="update_price" required><br>
-                                    <!--<label>Image:</label>
-                                    <input type="text" value="<?php //echo $product['name'];?>" name="price" required><br>-->
-                                    <label>Grade:</label>
-                                    <input type="text"  name="grade" id="update_grade" required><br>
-                                    <button type="submit" class="btn btn-primary">Create Book</button>
-                                  </form>
+              </div>
+              <button class="badge badge-sm bg-gradient-success" data-bs-toggle="modal" data-bs-target="#editModal">Create Product</button>
+              <!--modal-->
+              <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                              <h5 class="modal-title" id="myModalLabel">Add Product</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                              </div>
+                              <div class="modal-body">
+                                <div class="card-body">
+                                    
+                                    <form method="POST" action=" ">
+                                        <h6 class="heading-small text-muted mb-4">Product Information</h6>
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="input-username">Product Name</label>
+                                                        <input type="text" id="input-username" class="form-control" name="name" placeholder="Product Name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="input-email">Brand Name</label>
+                                                        <input type="text" id="input-email" class="form-control" name="brandname" placeholder="brandname">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="input-first-name">Price</label>
+                                                        <input type="text" id="input-first-name" class="form-control" name="price" placeholder="Price" >
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="input-last-name">Grade</label>
+                                                        <input type="text" id="input-last-name" class="form-control" name="grade" placeholder="grade" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <hr class="horizontal dark my-4">
+                                        <!-- Images-->
+                                        <h6 class="heading-small text-muted mb-4">Upload Product Image</h6>
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="input-address">Product Image</label>
+                                                        <input id="input-address" class="form-control" name="product_image" placeholder="../images/web images/Product images/blabla.jpg"  type="text">
+                                                    </div>
+                                                </div>
+                                         </div>
+                                         <button type="submit" class="btn btn-primary">Create Product</button>
+                                    </form>
                                 </div>
                               </div>
-                            </div>
+                          </div>
                         </div>
-                </div>
+                    </div>
+              </div>
+              <!--#######-->
             </div>
           </div>
         </div>
@@ -166,27 +202,7 @@ $products =$stmt->get_result();//arrary for looping
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
-
-    
-  </script>
-  <script>
-    $(document).ready(function(){
-      $('.editBtn').on('click',function(){
-        $('#editModal').modal('show');
-            var user_id=$(this).data("id");
-            $.ajax({
-                        url: 'edit_product.php',
-                        type: 'post',
-                        data: {user_id: user_id},
-                        success: function(response){ 
-                            $('.modal-body').html(response); 
-                            $('#editModal').modal('show'); 
-                        }
-                    });
-
-      });
-    });
-  </script>
+  </script> 
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

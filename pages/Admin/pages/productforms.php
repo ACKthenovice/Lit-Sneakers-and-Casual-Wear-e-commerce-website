@@ -120,6 +120,32 @@
         </form>
     </div>
 
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="myModalLabel">Add Book</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form method="POST" action="">
+                            <label>Title:</label>
+                            <input type="text" name="title" required><br>
+                            <label>Author:</label>
+                            <input type="text" name="author" required><br>
+                            <label>Price:</label>
+                            <input type="text" name="price" required><br>
+
+                            <button type="submit" class="btn btn-primary">Create Book</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                 </div>
+
 </div>
   </main>
   <?php include 'sidebarsetting.php' ?>
